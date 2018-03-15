@@ -8,9 +8,11 @@ Use Spring Boot to build a microservice that containing APIs for CRUD operation 
 Download the source code, then cd into the project folder. Run "mvn clean package". Finally run "java -jar customer-service-0.0.1-SNAPSHOT.jar" under target folder. 
 
 ## Security aspect
-Oauth2 has been applied to this service. the grant type used here is "client_credentials". The API user need to get the token before making call to other endpoints. 
+Oauth2 has been applied to this service. the grant type used here is "client_credentials". The API user need to get the token with the credential specified in the yml file before making the call to other endpoints. 
 
-## API Contract Definition (Swagger config has been added,  but it is blocked by Oauth2. Currently, working on that)
+## API Contract Definition
+Swagger ui has been enabled. The url is http://localhost:8089/swagger-ui.html
+Or you can use curl or postman to make the API call. Below is the sample of using curl to call API.
 
 ### 1. Get token:
 

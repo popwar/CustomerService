@@ -17,7 +17,6 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 @Configuration
-@EnableResourceServer
 @EnableAuthorizationServer
 public class OAuth2AuthorizationServerConfig extends
 		AuthorizationServerConfigurerAdapter {

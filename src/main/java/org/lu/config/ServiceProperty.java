@@ -11,6 +11,16 @@ import java.util.List;
 public class ServiceProperty {
 
 	private String apiKey;
+	
+	private String resourceId;
+
+	public String getResourceId() {
+		return resourceId;
+	}
+
+	public void setResourceId(String resourceId) {
+		this.resourceId = resourceId;
+	}
 
 	private List<Oauth2Clients> oauth2Clients = new ArrayList<>();
 

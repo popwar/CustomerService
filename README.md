@@ -10,12 +10,10 @@ Download the source code, then cd into the project folder. Run "mvn clean packag
 ## Security aspect
 Oauth2 has been applied to this service. the grant type used here is "client_credentials". The API user need to get the token with the credential specified in the yml file before making the call to other endpoints. 
 
-## API Contract Definition
-Swagger ui has been enabled. The url is http://localhost:8089/swagger-ui.html
-Or you can use curl or postman to make the API call. Below is the sample of using curl to call API.
+## API Contract Definition (Swagger ui enabled)
+As the APIs are protected, the token is needed to make any API call.
 
-### 1. Get token:
-
+###  Get token:
 Sample request:
 ```
 curl -X POST \
@@ -34,10 +32,13 @@ Sample result:
     "jti": "214e33b0-ccc9-48e1-b4c2-a359bda24b26"
 }
 ```
-The value of access_token should be appened as the header to call other secured APIs
+The value of access_token should be appened as the header to call other secured APIs.
+
+Swagger ui has been enabled. The url is http://localhost:8089/swagger-ui.html. Token is needed to make the call.
+Otherwise, curl or postman can be used to make the API call. Below is the sample of using curl to call API.
 
 
-### 2. Get all customer profiles
+### 1. Get all customer profiles
 
 Sample request:
 ```
@@ -61,7 +62,7 @@ Sample result:
 ]
 ```
 
-### 3. Create a new customer profile
+### 2. Create a new customer profile
 
 Sample request:
 ```
@@ -94,7 +95,7 @@ Sample result:
 }
 ```
 
-### 4. update a customer profile
+### 3. update a customer profile
 
 Sample request:
 ```
@@ -127,7 +128,7 @@ Sample result:
 }
 ```
 
-### 5. Delete a customer profile 
+### 4. Delete a customer profile 
 
 Sample request:
 ```
@@ -142,6 +143,5 @@ Sample Result:
 ```
 
 ## TODO List
-Address swagger being blocked by Oauth2.
 Using lombok library to eliminate boil-plate code.
 Asymmetric key-pair should be applied in terms of Oauth2. 

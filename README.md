@@ -14,11 +14,13 @@ Download the source code, then cd into the project folder. Run "mvn clean packag
 ### 1. Get token:
 
 Sample request:
+```
 curl -X POST \
   http://localhost:8089/oauth/token \
   -H 'authorization: Basic Y29yZS1zZXJ2aWNlOjA5NDBmNDg5MGNhMTM0M2NxMWowNw==' \
   -F grant_type=client_credentials
-  
+```
+
 Sample result:
 {
     "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiY3VzdG9tZXItc2VydmljZSJdLCJzY29wZSI6WyJhdXRoZW50aWNhdGUiXSwiZXhwIjoxNTIxMTM0OTExLCJqdGkiOiIyMTRlMzNiMC1jY2M5LTQ4ZTEtYjRjMi1hMzU5YmRhMjRiMjYiLCJjbGllbnRfaWQiOiJjb3JlLXNlcnZpY2UifQ.dFzYwDRAy0kxW4OhkO4DYKo3R6LCtEvFXRr29F6Babo",

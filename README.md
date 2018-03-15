@@ -9,7 +9,7 @@ Embedded H2 database has been used as the data store for this demo.
 Download the source code, then cd into the project folder. Run "mvn clean package". Finally run "java -jar ".
 
 
-## API Contract Definition (Swagger config has been added but, it is being blocked by Oauth2. Currently, working on that)
+## API Contract Definition (Swagger config has been added,  but it is blocked by Oauth2. Currently, working on that)
 
 ### 1. Get token:
 

@@ -39,8 +39,8 @@ public class SwaggerConfig {
 	}
 
 	private ApiInfo apiInfo() {
-		ApiInfo apiInfo = new ApiInfo("Notification service REST API",
-				"Notification service REST API.", "version 1",
+		ApiInfo apiInfo = new ApiInfo("Customer service REST API",
+				"Customer service REST API.", "version 1",
 				"Terms of service", new Contact("", "", ""), "License of API",
 				"API license URL");
 		return apiInfo;

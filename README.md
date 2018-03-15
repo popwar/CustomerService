@@ -1,17 +1,17 @@
 # CustomerService
 
-High level integration design
+## High level integration design
 
 Using Spring Boot to build a microservice that containing APIs for CRUD operation on customer profile which consists of two eneites, customer profile and address. Token based authentication has been enabled to protect the APIs by using Spring Securiy Oauth2.
 Embedded H2 database has been used as the data store for this demo.
 
-# How to run the application
+## How to run the application
 Download the source code, then cd into the project folder. Run "mvn clean package". Finally run "java -jar ".
 
 
-API Contract Definition (Swagger config has been added but, it is being blocked by Oauth2. Currently, working on that)
+## API Contract Definition (Swagger config has been added but, it is being blocked by Oauth2. Currently, working on that)
 
-1. Get token:
+### 1. Get token:
 
 Sample request:
 curl -X POST \
@@ -30,7 +30,7 @@ Sample result:
 The value of access_token should be appened as the header to call other secured APIs
 
 
-2. Get all customer profiles
+### 2. Get all customer profiles
 
 Sample request:
 curl -X GET \
@@ -51,7 +51,7 @@ Sample result:
 ]
 
 
-3. Create a new customer profile
+### 3. Create a new customer profile
 
 Sample request:
 curl -X POST \
@@ -81,7 +81,7 @@ Sample result:
 }
 
 
-4. update a customer profile
+### 4. update a customer profile
 
 Sample request:
 curl -X PUT \
@@ -111,7 +111,7 @@ Sample result:
 }
 
 
-5. Delete a customer profile 
+### 5. Delete a customer profile 
 
 Sample request:
 curl -X DELETE \
@@ -121,6 +121,6 @@ curl -X DELETE \
 Sample Result:
 "deleted"
 
-# TODO List
+## TODO List
 Address swagger being blocked by Oauth2.
 Using lombok library to eliminate boil-plate code.

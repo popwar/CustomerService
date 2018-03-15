@@ -2,12 +2,13 @@
 
 ## High level integration design
 
-Using Spring Boot to build a microservice that containing APIs for CRUD operation on customer profile which consists of two eneites, customer profile and address. Token based authentication has been enabled to protect the APIs by using Spring Securiy Oauth2.
-Embedded H2 database has been used as the data store for this demo.
+Use Spring Boot to build a microservice that containing APIs for CRUD operation on customer profile which consists of two eneites, customer profile and customer address. Token based authentication has been enabled to protect the APIs by using Spring Securiy Oauth2. Embedded H2 database has been used as the data store for this service. At the same time, embedded Tomcat server is used. For better performance, JVM parameter can be appended while running this application. 
 
 ## How to run the application
-Download the source code, then cd into the project folder. Run "mvn clean package". Finally run "java -jar customer-service-0.0.1-SNAPSHOT.jar" under target folder.
+Download the source code, then cd into the project folder. Run "mvn clean package". Finally run "java -jar customer-service-0.0.1-SNAPSHOT.jar" under target folder. 
 
+## Security aspect
+Oauth2 has been applied to this service. the grant type used here is "client_credentials". The API user need to get the token before making call to other endpoints. 
 
 ## API Contract Definition (Swagger config has been added,  but it is blocked by Oauth2. Currently, working on that)
 
@@ -141,3 +142,4 @@ Sample Result:
 ## TODO List
 Address swagger being blocked by Oauth2.
 Using lombok library to eliminate boil-plate code.
+Asymmetric key-pair should be applied in terms of Oauth2. 

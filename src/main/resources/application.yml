@@ -1,0 +1,31 @@
+server:
+    port: 8089
+
+app:
+    apiKey:
+      123456
+    resourceId:
+      customer-service
+    oauth2Clients:
+        -
+            id: core-service
+            resourceIds: customer-service
+            secret: 0940f4890ca1343cq1j07
+            autoApprove: true
+            authorizedGrantTypes:
+                - client_credentials
+                - refresh_token
+            scopes:
+                - authenticate
+                
+spring:
+  jpa:
+    hibernate.ddl-auto: create
+    #hibernate.ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate.format_sql: false
+      use_sql_comments: true
+                
+#logging.level.org.springframework.security:
+ # DEBUG

@@ -1,6 +1,5 @@
 package org.lu.service.impl;
 
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.Date;
@@ -16,6 +15,7 @@ import org.lu.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.lu.exception.CustomerException;
 
 @Transactional
 @Service
@@ -104,7 +104,7 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO add custom exception
 		return customerProfileRepository.findByCustomerProfileId(
 				customerProfileId).orElseThrow(
-				() -> new RuntimeException("Customer does not exists "));
+				() -> new CustomerException("Customer does not exists "));
 	}
 
 }

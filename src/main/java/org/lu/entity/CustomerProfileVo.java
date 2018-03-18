@@ -3,23 +3,25 @@ package org.lu.entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class CustomerProfileVo {
 
-	final private Long customerProfileId;
+	private Long customerProfileId;
 
-	final private String firstName;
+	private String firstName;
 
-	final private String lastName;
+	private String lastName;
 
-	final private String birthDay;
+	private String birthDay;
 
-	final private String homeAddress;
+	private String homeAddress;
 
-	final private String officeAddress;
+	private String officeAddress;
 
-	final private String emailAddress;
+	private String emailAddress;
 }

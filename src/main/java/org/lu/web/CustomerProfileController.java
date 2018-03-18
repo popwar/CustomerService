@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/customerProfiles")
-public class CustomerProfileController {
+public class CustomerProfileController extends BaseController{
 
 	@Autowired
 	private CustomerService customerService;

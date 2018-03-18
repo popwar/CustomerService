@@ -4,9 +4,25 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CustomerProfileOperateVo {
 
 	@NotBlank
@@ -37,69 +53,5 @@ public class CustomerProfileOperateVo {
 	@NotBlank
 	@Email(message = "Please provide a valid email address")
 	private String emailAddress;
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public int getDayOfBirth() {
-		return dayOfBirth;
-	}
-
-	public void setDayOfBirth(int dayOfBirth) {
-		this.dayOfBirth = dayOfBirth;
-	}
-
-	public int getMonthOfBirth() {
-		return monthOfBirth;
-	}
-
-	public void setMonthOfBirth(int monthOfBirth) {
-		this.monthOfBirth = monthOfBirth;
-	}
-
-	public int getYearOfBirth() {
-		return yearOfBirth;
-	}
-
-	public void setYearOfBirth(int yearOfBirth) {
-		this.yearOfBirth = yearOfBirth;
-	}
-
-	public String getHomeAddress() {
-		return homeAddress;
-	}
-
-	public void setHomeAddress(String homeAddress) {
-		this.homeAddress = homeAddress;
-	}
-
-	public String getOfficeAddress() {
-		return officeAddress;
-	}
-
-	public void setOfficeAddress(String officeAddress) {
-		this.officeAddress = officeAddress;
-	}
-
-	public String getEmailAddress() {
-		return emailAddress;
-	}
-
-	public void setEmailAddress(String emailAddress) {
-		this.emailAddress = emailAddress;
-	}
 
 }

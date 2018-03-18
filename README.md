@@ -141,7 +141,3 @@ Sample Result:
 ```
 "deleted"
 ```
-
-## TODO List
-Using lombok library to eliminate boil-plate code.
-Asymmetric key-pair should be applied in terms of Oauth2. 

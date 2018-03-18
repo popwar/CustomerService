@@ -33,36 +33,41 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	private CustomerProfileVo convertToProfileVo(CustomerProfileEntity po) {
-		CustomerProfileVo vo = new CustomerProfileVo();
-		vo.setCustomerProfileId(po.getCustomerProfileId());
-		vo.setFirstName(po.getFirstName());
-		vo.setLastName(po.getLastName());
-		vo.setBirthDay(po.getBirthDay().toString());
 
-		final CustomerAddressEntity address = po.getAddress();
-		vo.setHomeAddress(address.getHomeAddress());
-		vo.setOfficeAddress(address.getOfficeAddress());
-		vo.setEmailAddress(address.getEmailAddress());
+		CustomerAddressEntity address = po.getAddress();
+
+		CustomerProfileVo vo = CustomerProfileVo.builder()
+				.customerProfileId(po.getCustomerProfileId())
+				.firstName(po.getFirstName()).lastName(po.getFirstName())
+				.birthDay(po.getBirthDay().toString())
+				.homeAddress(address.getHomeAddress())
+				.officeAddress(address.getOfficeAddress())
+				.emailAddress(address.getEmailAddress()).build();
+
 		return vo;
 	}
 
+	@Override
 	public CustomerProfileVo saveCustomerProfile(
 			CustomerProfileOperateVo customerProfileCreateVo) {
-		CustomerProfileEntity customerProfile = new CustomerProfileEntity();
-		customerProfile.setFirstName(customerProfileCreateVo.getFirstName());
-		customerProfile.setLastName(customerProfileCreateVo.getLastName());
 
-		customerProfile.setBirthDay(Date.from(LocalDate
+		Date birthDay = Date.from(LocalDate
 				.of(customerProfileCreateVo.getYearOfBirth(),
 						customerProfileCreateVo.getMonthOfBirth(),
 						customerProfileCreateVo.getDayOfBirth()).atStartOfDay()
-				.toInstant(ZoneOffset.UTC)));
+				.toInstant(ZoneOffset.UTC));
 
-		CustomerAddressEntity address = new CustomerAddressEntity();
-		address.setCustomerProfile(customerProfile);
-		address.setHomeAddress(customerProfileCreateVo.getHomeAddress());
-		address.setOfficeAddress(customerProfileCreateVo.getOfficeAddress());
-		address.setEmailAddress(customerProfileCreateVo.getEmailAddress());
+		CustomerProfileEntity customerProfile = CustomerProfileEntity.builder()
+				.firstName(customerProfileCreateVo.getFirstName())
+				.lastName(customerProfileCreateVo.getLastName())
+				.birthDay(birthDay).build();
+
+		CustomerAddressEntity address = CustomerAddressEntity.builder()
+				.customerProfile(customerProfile)
+				.homeAddress(customerProfileCreateVo.getHomeAddress())
+				.officeAddress(customerProfileCreateVo.getOfficeAddress())
+				.emailAddress(customerProfileCreateVo.getEmailAddress())
+				.build();
 
 		customerProfile.setAddress(address);
 		return this.convertToProfileVo(customerProfileRepository
@@ -101,7 +106,7 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	private CustomerProfileEntity getCustomerProfile(long customerProfileId) {
-		// TODO add custom exception
+
 		return customerProfileRepository.findByCustomerProfileId(
 				customerProfileId).orElseThrow(
 				() -> new CustomerException("Customer does not exists "));

@@ -3,6 +3,7 @@ package org.lu.entity;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,18 +32,9 @@ public class CustomerProfileOperateVo {
 	@NotBlank
 	private String lastName;
 
-	@Digits(integer = 2, fraction = 0)
-	@Min(value = 1)
-	@Max(value = 31)
-	private int dayOfBirth;
-
-	@Digits(integer = 2, fraction = 0)
-	@Min(value = 1)
-	@Max(value = 12)
-	private int monthOfBirth;
-
-	@Digits(integer = 4, fraction = 0)
-	private int yearOfBirth;
+	@NotBlank
+	@Pattern(regexp = "[0-9]{4}-[0-9]{2}-[0-9]{2}", message = "Data format is yyyy/MM/dd")
+	private String birthDay;
 
 	@NotBlank
 	private String homeAddress;

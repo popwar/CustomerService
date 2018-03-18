@@ -52,9 +52,7 @@ public class CustomerServiceImpl implements CustomerService {
 			CustomerProfileOperateVo customerProfileCreateVo) {
 
 		Date birthDay = Date.from(LocalDate
-				.of(customerProfileCreateVo.getYearOfBirth(),
-						customerProfileCreateVo.getMonthOfBirth(),
-						customerProfileCreateVo.getDayOfBirth()).atStartOfDay()
+				.parse(customerProfileCreateVo.getBirthDay()).atStartOfDay()
 				.toInstant(ZoneOffset.UTC));
 
 		CustomerProfileEntity customerProfile = CustomerProfileEntity.builder()
@@ -84,9 +82,7 @@ public class CustomerServiceImpl implements CustomerService {
 		customerProfile.setLastName(customerProfileCreateVo.getLastName());
 
 		customerProfile.setBirthDay(Date.from(LocalDate
-				.of(customerProfileCreateVo.getYearOfBirth(),
-						customerProfileCreateVo.getMonthOfBirth(),
-						customerProfileCreateVo.getDayOfBirth()).atStartOfDay()
+				.parse(customerProfileCreateVo.getBirthDay()).atStartOfDay()
 				.toInstant(ZoneOffset.UTC)));
 
 		CustomerAddressEntity address = customerProfile.getAddress();

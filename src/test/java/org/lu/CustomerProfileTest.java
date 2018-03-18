@@ -3,6 +3,7 @@ package org.lu;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.Date;
+import java.util.Optional;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -66,6 +67,26 @@ public class CustomerProfileTest {
 		assertThat(subscription.getFirstName()).isEqualTo("Tom");
 		assertThat(subscription.getHomeAddress()).isEqualTo("home");
 		assertThat(subscription.getBirthDay()).isEqualTo("1987-01-01");
+	}
+
+	@Test
+	public void updateCustomerProfileTest() {
+		Mockito.when(customerProfileRepository.findByCustomerProfileId(1l))
+				.thenReturn(Optional.of(profile));
+
+		Mockito.when(
+				customerProfileRepository.save(Mockito
+						.any(CustomerProfileEntity.class))).thenReturn(profile);
+
+		CustomerProfileOperateVo requestVo = this.preparePrarameter("Tommy",
+				"Fynn", "1987-02-01", "homies", "office", "Tom@gmail.com");
+
+		CustomerProfileVo subscription = CustomerService.updateCustomerProfile(
+				1, requestVo);
+
+		assertThat(subscription.getFirstName()).isEqualTo("Tommy");
+		assertThat(subscription.getHomeAddress()).isEqualTo("homies");
+		assertThat(subscription.getBirthDay()).isEqualTo("1987-02-01");
 	}
 
 	private CustomerProfileOperateVo preparePrarameter(String firstName,

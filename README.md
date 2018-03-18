@@ -5,7 +5,7 @@
 Use Spring Boot to build a microservice that containing APIs for CRUD operation on customer profile which consists of two eneites, customer profile and customer address. Token based authentication has been enabled to protect the APIs by using Spring Securiy Oauth2. Embedded H2 database has been used as the data store for this service. At the same time, embedded Tomcat server is used. For better performance, JVM parameter can be appended while running this application. 
 
 ## How to run the application
-Download the source code, then cd into the project folder. Run "mvn clean package". Finally run "java -jar customer-service-0.0.1-SNAPSHOT.jar" under target folder. 
+Download the source code, then cd into the project folder. Run "mvn clean package". UT coverage report will be generated under taget/jacoco-ut. Finally run "java -jar customer-service-0.0.1-SNAPSHOT.jar" under target folder. 
 
 ## Security aspect
 Oauth2 has been applied to this service. the grant type used here is "client_credentials". The API user need to get the token with the credential specified in the yml file before making the call to other endpoints. 

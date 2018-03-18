@@ -63,7 +63,9 @@ public class CustomerProfileTest {
 		CustomerProfileVo subscription = CustomerService
 				.saveCustomerProfile(requestVo);
 
-		assertThat(subscription).isNotNull();
+		assertThat(subscription.getFirstName()).isEqualTo("Tom");
+		assertThat(subscription.getHomeAddress()).isEqualTo("home");
+		assertThat(subscription.getBirthDay()).isEqualTo("1987-01-01");
 	}
 
 	private CustomerProfileOperateVo preparePrarameter(String firstName,

@@ -1,5 +1,6 @@
 package org.lu.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.Date;
@@ -20,6 +21,8 @@ import org.lu.exception.CustomerException;
 @Transactional
 @Service
 public class CustomerServiceImpl implements CustomerService {
+	
+	public final static SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
 	@Autowired
 	private CustomerProfileRepository customerProfileRepository;
@@ -39,7 +42,7 @@ public class CustomerServiceImpl implements CustomerService {
 		CustomerProfileVo vo = CustomerProfileVo.builder()
 				.customerProfileId(po.getCustomerProfileId())
 				.firstName(po.getFirstName()).lastName(po.getFirstName())
-				.birthDay(po.getBirthDay().toString())
+				.birthDay(formatter.format(po.getBirthDay()))
 				.homeAddress(address.getHomeAddress())
 				.officeAddress(address.getOfficeAddress())
 				.emailAddress(address.getEmailAddress()).build();

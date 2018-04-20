@@ -6,7 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<name>customer service</name>
-	<description>customer service</description>
+	<description>1 customer service</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

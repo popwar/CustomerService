@@ -144,6 +144,3 @@ Sample Result:
 
 aaa
 
-bbb
-
-ccc
